@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int main()
+double main()
 {
 	double a = 3;
 	double b = 4;
