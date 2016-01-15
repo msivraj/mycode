@@ -7,25 +7,42 @@ eat. The system will then prompt the user to pay along with the added 10 percent
 price of the order.*/
 
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
 int main()
 {
-	int number_of_guests;
+	int numberOfGuests;
 	cout << "How many guest will be attending your event?";
-cin >> number_of_guests;
-if ("number_of_guests > 7"){
-	cout << "Your order will consist of " << number_of_guests /7 << " large pizzas, " << number_of_guests /7 /3 
-		<< " medium pizzas," "and" <<number_of_guests /7 /3 /1<< "small pizzas.";
+	cin >> numberOfGuests;
+	
+	int largePizzas = numberOfGuests / 7;
+	int remainder1 = numberOfGuests % 7;
+	int mediumPizzas = remainder1 / 3;
+	int remainder2 = remainder1 % 3;
+	int smallPizzas = remainder2;
+
+	
+if (numberOfGuests >= 7){
+	cout << "Your order will consist of " << largePizzas << " large pizzas, " << mediumPizzas 
+		<< " medium pizzas," "and" << smallPizzas << "small pizzas.";
+	int radiusOfLargePizza = 10;
+	int radiusOfMediumPizza = 8;
+	int radiusOfSmallPizza = 6;
+	double pi = 3.14159;
+	cout << "The area your large pizza(s) will be" << pi*(pow(radiusOfLargePizza,2)) <<
+		" square inches, with" << pi*(pow(radiusOfMediumPizza,2)) <<
+		" square inches of medium pizza(s) and," << pi*(pow(radiusOfSmallPizza,2)) << "square inches of small pizza(s).";
 }
-else if ("number_of_guests < 7"){
-	cout << "Your order will consist of " << number_of_guests % 3 << "medium pizzas,and"
-		<< number_of_guests % 3 % 1 << "small pizzas.";
+else if (numberOfGuests >= 3){
+	cout << "Your order will consist of " << mediumPizzas << "medium pizzas,and"
+		<< smallPizzas << "small pizzas.";
 }
-/*else ("number_of_guests > 3"){
-	cout << "Your order will consist of " << number_of_guests / 1 << "small pizzas."
-}/**/
+else if (numberOfGuests > 0){
+	cout << "Your order ll consist of " << smallPizzas << "small pizzas.";
+}
+
 system("pause");
 
 return 0; 
