@@ -7,7 +7,7 @@ eat. The system will then prompt the user to pay along with the added 10 percent
 price of the order.*/
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using namespace std;
 
